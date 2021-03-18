@@ -7,7 +7,7 @@
         <div class="lbbox">
 <div class="atlabel">@</div>
         </div>
-<input class="minput" />
+<input v-model="username" class="minput" />
       </div>
 
 <button @click="submitdata" class="mbtn">見る</button>
@@ -18,14 +18,36 @@
 
 export default {
   name: 'top',
-  props: {
-  username: String,
-  },
+ data () {
+    return {
+      username: ""
+    }
+    },
   methods: {
    submitdata() {
-     this.username="fdededrg";
-     this.$emit('send',this.username);
+     const username = this.username;
+     if(username){
+       if(this.isHanEisu(username)){
+     this.$emit('send',username);
+     } else{
+       this.$swal({icon: 'info',
+  text: '半角英数字のみ使用できます。',
+  });
+     }
+     } else {
+this.$swal({icon: 'info',
+  text: 'IDが入力されていません。',
+});
+     }
+  },
+  isHanEisu(str){
+  str = (str==null)?"":str;
+  if(str.match(/^[A-Za-z0-9]*$/)){
+    return true;
+  }else{
+    return false;
   }
+}
   },
 
 }
@@ -145,5 +167,9 @@ color: #fff;
     left: 0;
     right: 0;
     margin: auto;
+}
+
+.swal2-container {
+    z-index: 1000000;
 }
 </style>
