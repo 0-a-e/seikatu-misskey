@@ -7,9 +7,13 @@
         <div class="lbbox">
 <div class="atlabel">@</div>
         </div>
-<input v-model="username" class="minput" />
+<input v-model="username" placeholder="idを入力" class="minput" />
       </div>
-
+<div class="infobox">
+  <p>msk.seppuku.clubのみ対応</p>
+<button class="btn"><a href="https://github.com/0-a-e/seikatu-misskey"><img src="https://img.icons8.com/bubbles/50/000000/github.png"/></a></button>
+<p>2021 <a href="https://msk.seppuku.club/@oae"> <img style="width: 20px; vertical-align: bottom; border: solid 1px #f5f5f5; border-radius: 50px;" src="https://msk.seppuku.club/files/a6540cc5-de2c-4a5a-a8b9-63b35e46a101"/></a> MIT License.</p>
+</div>
 <button @click="submitdata" class="mbtn">見る</button>
   </div>
 </template>
@@ -137,6 +141,22 @@ a {
     border: none;
     box-shadow: 0px 0px 0px 8px lightseagreen inset;
     transition: 0.1s;
+}
+.btn{
+border: none;
+background: transparent;
+outline: none;
+border-radius: 50px;
+}
+.btn:active{
+   transform: scale(0.9);
+}
+.infobox{
+    position:absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 55vh;
 }
 .mbtn:active{
     height: 60px;
