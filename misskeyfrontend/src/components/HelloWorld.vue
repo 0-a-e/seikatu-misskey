@@ -28,7 +28,7 @@ export default {
     },
     showgraph(user){
        var date = new Date();
-        axios.get( 'https://slimy-turtle-82.loca.lt?user='+ user )
+        axios.get( 'https://seppukumisskeyoaeapi-rszvj.run.goorm.io/?user='+ user )
                 .then( ( res ) => {
                     console.log(res["data"]);
                     if(res["data"]["error"] == "usernotfound"){
