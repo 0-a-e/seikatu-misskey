@@ -28,7 +28,7 @@ export default {
     },
     showgraph(user){
        var date = new Date();
-        axios.get( 'http://clever-walrus-22.loca.lt?user='+ user )
+        axios.get( 'http://slimy-turtle-82.loca.lt?user='+ user )
                 .then( ( res ) => {
                     console.log(res["data"]);
                     if(res["data"]["error"] == "usernotfound"){
