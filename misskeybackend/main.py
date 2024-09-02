@@ -24,7 +24,8 @@ class main:
     
     def main(self,user):
         self.resetdatalistnum()
-        userresponse = requests.post("https://misskey.io/api/users/search-by-username-and-host",json.dumps({"username":user,"limit":1,"host":"msk.seppuku.club"}),headers={'Content-Type': 'application/json'}).json()
+        userresponse = requests.post("https://msk.seppuku.club/api/users/search",json.dumps({"query":user,"limit":1,"localOnly":True}),headers={'Content-Type': 'application/json'}).json()
+        print(userresponse)
         if len(userresponse) == 0:
             return {"error":"usernotfound"}
         self.uid = userresponse[0]["id"]
@@ -105,7 +106,7 @@ class main:
 
     def getnotes(self,uid,sinceId):
         #めも　新しいほうが取得されない
-        usernoteurl = "https://misskey.io/api/users/notes"
+        usernoteurl = "https://msk.seppuku.club/api/users/notes"
         usernotedata = {"userId": uid,"limit":100,"sinceDate":self.from1970}
         
         if sinceId:
